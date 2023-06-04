@@ -1,0 +1,39 @@
+
+ <!-- Footer -->
+ <footer class="content-footer footer bg-footer-theme">
+    <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+      <div class="mb-2 mb-md-0">
+        © 2023
+        , made with 
+        <a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" title="HTML5"><i class='bx bxl-html5 fs-3 text-danger'></a></i>, 
+        <a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Javascript"><i class='bx bxl-javascript fs-3 text-warning'></i></a>, 
+        <a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" title="CSS3"><i class='bx bxl-css3 fs-3 text-primary'></i></a>, 
+        <a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" title="PHP8"><i class='bx bxl-php fs-3 text-primary'></i></a> by
+        <a href="https://webdev_nesty.dev" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom" title="https://webdev_nesty.dev" class="footer-link fw-bolder">Nesty</a>
+      </div>
+    </div>
+  </footer>
+  <!-- / Footer -->
+
+  <div class="content-backdrop fade"></div>
+</div>
+<!-- Content wrapper -->
+</div>
+<!-- / Layout page -->
+</div>
+
+<!-- Overlay -->
+<div class="layout-overlay layout-menu-toggle"></div>
+</div>
+<!-- / Layout wrapper -->
+  <script src="../assets/vendor/js/menu.js"></script>
+  <!-- endbuild -->
+
+  <!-- Vendors JS -->
+  <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+  <!-- Main JS -->
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/dashboards-analytics.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@29.3.5/styles/ag-grid.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@29.3.5/styles/ag-theme-alpine.css" />
+
+<script src="./assets/vendor/ag-grid/ag-grid-enterprise.min.js"></script>
+<style>
+.ag-row {
+border-left: 4px solid transparent !important;
+}
+.ag-row:hover {
+border-left: 4px solid var(--bs-primary) !important;
+}
+.ag-row-selected {
+border-left: 4px solid var(--bs-primary) !important;
+}
+
+.ag-row:hover,
+.ag-row-selected {
+    cursor: pointer;
+}
+
+.ag-root-wrapper {
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+</style>
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Productos /</span> Inventario</h4>
+
+    <div class="row">
+        <div id="item_grid" style="height: 60vh; width:100%;" class="ag-theme-alpine"></div>
+    </div>
+</div>
+
+<script>
+    let result = null;
+    let columnDefs = new Array();
+    let rowData = new Array();
+    $.ajax({url: "http://tienda.local.lan/api/?mode=request&type=columns&value=items"})
+    .done(function (e){
+        res = JSON.parse(e);
+
+        Object.entries(res).forEach( entry=> {
+            let col_select = false;
+            console.log(entry[1].Field);
+            if ( entry[1].Field == "id" ) col_select = true;
+                
+            columnDefs.push({field: entry[1].Field, checkboxSelection: col_select, headerCheckboxSelection: col_select});      
+        })
+
+        for ($i = 0; $i <= 10; $i++){
+            rowData.push({name: "25"});
+        }
+        
+        // let the grid know which columns and what data to use
+        //const gridOptions = {columnDefs: columnDefs, rowData: rowData, singleClickEdit: true};
+        //console.log(gridOptions);
+        const gridOptions = {
+            columnDefs: columnDefs,
+            rowData: rowData,
+            defaultColDef: {
+                resizable: true,
+                sortable: true,
+                editable: true,
+            },
+            pagination: true,
+            rowSelection: "multiple",
+            cacheQuickFilter: true,
+            paginationAutoPageSize: true, 
+        };
+
+        const gridDiv = document.querySelector('#item_grid');
+        new agGrid.Grid(gridDiv, gridOptions);
+
+        gridOptions.api.sizeColumnsToFit();
+        
+    });
+
+    
+
+</script>
